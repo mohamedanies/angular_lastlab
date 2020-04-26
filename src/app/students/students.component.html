@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">department</th>
+        <th>operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students;index as i" >
+
+        <td>{{student._id}}</td>
+        <td>{{student.Name}}</td>
+        <td>{{student.Email}}</td>
+        <td>{{student.Department}}</td>
+        <td>
+
+          <a class="btn btn-info" routerLink="/students/detailStudents/{{student._id}}">details</a>
+          &nbsp; &nbsp; &nbsp;
+          <a class="btn btn-success" routerLink="/editStudents/{{student._id}}">edit</a>
+          &nbsp; &nbsp; &nbsp;
+          <button class="btn btn-danger" (click)="deleteStudent(student._id,i)">delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <router-outlet></router-outlet>
+
+
+</body>
+</html>
